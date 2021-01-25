@@ -162,7 +162,7 @@ namespace SheetMusicReader
             "Vertical"});
             this.viewDropDown.Name = "viewDropDown";
             this.viewDropDown.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.viewDropDown.Size = new System.Drawing.Size(0, 24);
+            this.viewDropDown.Size = new System.Drawing.Size(0, 23);
             this.viewDropDown.DropDownClosed += new System.EventHandler(this.viewDropDown_Change);
             this.viewDropDown.Click += new System.EventHandler(this.viewDropDown_Click);
             // 
