@@ -35,24 +35,30 @@ namespace SheetMusicReader
             this.menuItemFile = new System.Windows.Forms.MenuItem();
             this.menuItemOpen = new System.Windows.Forms.MenuItem();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
+            this.menuItem2 = new System.Windows.Forms.MenuItem();
+            this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuHelp = new System.Windows.Forms.MenuItem();
             this.menuTutorial = new System.Windows.Forms.MenuItem();
             this.menuAbout = new System.Windows.Forms.MenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.printButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.zoomButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.viewDropDown = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripLabel();
             this.openFileTool = new System.Windows.Forms.OpenFileDialog();
             this.printMusic = new System.Windows.Forms.PrintDialog();
             this.tableImagePanel = new System.Windows.Forms.TableLayoutPanel();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenu1
             // 
             this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItemFile,
+            this.menuItem2,
             this.menuHelp});
             // 
             // menuItemFile
@@ -76,9 +82,22 @@ namespace SheetMusicReader
             this.menuItem1.Text = "Exit";
             this.menuItem1.Click += new System.EventHandler(this.menuItem1_Click_1);
             // 
+            // menuItem2
+            // 
+            this.menuItem2.Index = 1;
+            this.menuItem2.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItem3});
+            this.menuItem2.Text = "Edit";
+            // 
+            // menuItem3
+            // 
+            this.menuItem3.Index = 0;
+            this.menuItem3.Text = "Change Background";
+            this.menuItem3.Click += new System.EventHandler(this.menuItem3_Click_1);
+            // 
             // menuHelp
             // 
-            this.menuHelp.Index = 1;
+            this.menuHelp.Index = 2;
             this.menuHelp.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuTutorial,
             this.menuAbout});
@@ -102,9 +121,10 @@ namespace SheetMusicReader
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(30, 30);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.printButton,
+            this.toolStripSeparator2,
+            this.viewDropDown,
             this.toolStripSeparator1,
-            this.zoomButton,
-            this.viewDropDown});
+            this.toolStripButton1});
             this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -126,22 +146,10 @@ namespace SheetMusicReader
             this.printButton.ToolTipText = "Print";
             this.printButton.Click += new System.EventHandler(this.printButton_Click);
             // 
-            // toolStripSeparator1
+            // toolStripSeparator2
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 45);
-            // 
-            // zoomButton
-            // 
-            this.zoomButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.zoomButton.Image = ((System.Drawing.Image)(resources.GetObject("zoomButton.Image")));
-            this.zoomButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.zoomButton.Name = "zoomButton";
-            this.zoomButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.zoomButton.Size = new System.Drawing.Size(44, 42);
-            this.zoomButton.Text = "toolStripButton1";
-            this.zoomButton.ToolTipText = "Zoom";
-            this.zoomButton.Click += new System.EventHandler(this.zoomButton_Click);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 45);
             // 
             // viewDropDown
             // 
@@ -154,9 +162,24 @@ namespace SheetMusicReader
             "Vertical"});
             this.viewDropDown.Name = "viewDropDown";
             this.viewDropDown.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.viewDropDown.Size = new System.Drawing.Size(150, 23);
+            this.viewDropDown.Size = new System.Drawing.Size(0, 24);
             this.viewDropDown.DropDownClosed += new System.EventHandler(this.viewDropDown_Change);
             this.viewDropDown.Click += new System.EventHandler(this.viewDropDown_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 45);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.BackColor = System.Drawing.SystemColors.Menu;
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(30, 42);
+            this.toolStripButton1.Text = "toolStripButton1";
             // 
             // openFileTool
             // 
@@ -186,12 +209,25 @@ namespace SheetMusicReader
             this.tableImagePanel.TabIndex = 2;
             this.tableImagePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
+            // trackBar1
+            // 
+            this.trackBar1.BackColor = System.Drawing.SystemColors.Menu;
+            this.trackBar1.Location = new System.Drawing.Point(222, 0);
+            this.trackBar1.Maximum = 2;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(106, 45);
+            this.trackBar1.TabIndex = 3;
+            this.trackBar1.TabStop = false;
+            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(828, 577);
+            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.tableImagePanel);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -202,6 +238,7 @@ namespace SheetMusicReader
             this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,7 +251,6 @@ namespace SheetMusicReader
         private System.Windows.Forms.MenuItem menuItemOpen;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton printButton;
-        private System.Windows.Forms.ToolStripButton zoomButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.OpenFileDialog openFileTool;
         private System.Windows.Forms.MenuItem menuHelp;
@@ -224,6 +260,11 @@ namespace SheetMusicReader
         private System.Windows.Forms.ToolStripComboBox viewDropDown;
         private System.Windows.Forms.TableLayoutPanel tableImagePanel;
         private System.Windows.Forms.MenuItem menuItem1;
+        private System.Windows.Forms.MenuItem menuItem2;
+        private System.Windows.Forms.MenuItem menuItem3;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.ToolStripLabel toolStripButton1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
 

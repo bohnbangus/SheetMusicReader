@@ -17,7 +17,24 @@ namespace SheetMusicReader
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             ///Initializes the form
-            Application.Run(new Form1());
+            if (!System.IO.File.Exists("recentFiles.ini"))
+            {
+                using (System.IO.StreamWriter fs = new System.IO.StreamWriter("recentFiles.ini"))
+                {
+                }
+            }
+            if (!System.IO.File.Exists("userPref.ini"))
+            {
+                using (System.IO.FileStream fs = System.IO.File.Create("userPref.ini"))
+                { }
+                using (System.IO.StreamWriter fs =
+new System.IO.StreamWriter("userPref.ini"))
+                {
+                    fs.WriteLine("[Background Colour]");
+                    fs.WriteLine("-8355712");
+                }
+            }
+            Application.Run(new StartupForm());
 
         }
     }
